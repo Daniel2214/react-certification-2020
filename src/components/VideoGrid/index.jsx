@@ -1,12 +1,12 @@
 import React, {useContext} from 'react'
 import { Grid } from 'semantic-ui-react'
 import VideoCard from '../VideoCard'
-import VideoContext from '../../state/VideosContext';
+import VideosContext  from '../../state/VideosContext';
 
 
 export default function VideosGrid () {
 
-  const { videos } = useContext(VideoContext);
+  const { videos } = useContext(VideosContext);
 
   return (
   

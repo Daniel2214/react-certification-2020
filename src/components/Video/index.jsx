@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import VideosContext from "../../state/VideosContext";
+import VideoContext  from "../../state/VideosContext";
 import { FavVideosContext } from "../../state/FavVideosContext";
 import { UserContext } from "../../state/UserContext";
 import VideoList from "../VideoList";
@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 import { Button } from "semantic-ui-react";
 
 export default function Video() {
-  const { currentVideo } = useContext(VideosContext);
+  const { currentVideo } = useContext(VideoContext);
   const { id } = useParams();
   const videoSrc = `https://www.youtube.com/embed/${id}`;
   const title = currentVideo
@@ -17,7 +17,7 @@ export default function Video() {
     ? currentVideo.snippet.description
     : "Not description available";
   const [session] = useContext(UserContext);
-  const [favVideos, setFavVideos, removeFavVideo, isInFavs] = useContext(FavVideosContext);
+  const [favVideos, addFavVideo, removeFavVideo, isInFavs] = useContext(FavVideosContext);
 
   
   const isAlreadyFavorite = isInFavs(currentVideo, favVideos);
@@ -47,7 +47,7 @@ export default function Video() {
                 ) : (
                   <Button
                     onClick={() => {
-                      setFavVideos([currentVideo, ...favVideos]);
+                      addFavVideo(favVideos, currentVideo)
                     }}
                   >
                     Add to favorites

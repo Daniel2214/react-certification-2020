@@ -26,13 +26,17 @@ export const FavoriteVideos = ({ children }) => {
 
     return false;
   };
+  
+  const addFavVideo = (videos, video) => {
+    setFavVideos([video, ...videos]);
+  }
 
   useEffect(() => {
     saveToLocalStorage(favVideos, "favVideos");
   }, [favVideos]);
 
   return (
-    <FavVideosContext.Provider value={[favVideos, setFavVideos, removeFavVideo, isInFavs]}>
+    <FavVideosContext.Provider value={[favVideos, addFavVideo, removeFavVideo, isInFavs]}>
       {children}
     </FavVideosContext.Provider>
   );

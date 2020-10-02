@@ -6,7 +6,7 @@ import { UserContext } from "../../state/UserContext";
 
 export default function Searchbar(props) {
   const [term, setTerm] = useState("");
-  const [session, setSession] = useContext(UserContext);
+  const [session, clearSession, addUser] = useContext(UserContext);
 
 
   const handleChange = (event) => {
@@ -41,7 +41,7 @@ export default function Searchbar(props) {
                 <Button
                   className="logButton"
                   onClick={() => {
-                    setSession(null);
+                    clearSession();
                   }}
                 >
                   <Icon className="userIcon" name="logout" />
@@ -52,7 +52,7 @@ export default function Searchbar(props) {
                   onClick={async (event) => {
                     event.preventDefault();
                     const currentUser = await login();
-                    setSession(currentUser);
+                    addUser(currentUser);
                   }}
                 >
                   <Icon className="userIcon" name="user" />

@@ -10,8 +10,16 @@ export const State = ({ children }) => {
     saveToLocalStorage(session, "userSession");
   }, [session]);
 
+  const clearSession = () => {
+    setSession(null);
+  }
+
+  const addUser = (user) => {
+    setSession(user);
+  }
+
   return (
-    <UserContext.Provider value={[session, setSession]}>
+    <UserContext.Provider value={[session, clearSession, addUser]}>
       {children}
     </UserContext.Provider>
   );

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import SearchBar from "./components/Searchbar";
 import { Switch, Route, useHistory } from "react-router-dom";
-import VideosGrid from "./components/VideoGrid/VideosGrid";
+import VideosGrid from "./components/VideoGrid";
 import Video from "./components/Video";
 import Youtube from "./api/Youtube";
 import VideosContext from "./state/VideosContext";
