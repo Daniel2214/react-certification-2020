@@ -4,7 +4,7 @@ import { loadFromLocalStorage, saveToLocalStorage } from "./Helpers";
 export const FavVideosContext = createContext(null);
 
 export const FavoriteVideos = ({ children }) => {
-  const initialValue = loadFromLocalStorage("favVideos") ? [] : loadFromLocalStorage("favVideos");
+  const initialValue = loadFromLocalStorage("favVideos") === null ? [] : loadFromLocalStorage("favVideos");
   const [favVideos, setFavVideos] = useState(initialValue);
 
   const removeFavVideo = (videos, video) => {
