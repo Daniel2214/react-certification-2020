@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import { Button, Icon } from "semantic-ui-react";
 import "./Searchbar.css";
-import { login } from "../utils/login";
-import { UserContext } from "../state/UserContext";
+import { login } from "../../utils/login";
+import { UserContext } from "../../state/UserContext";
 
 export default function Searchbar(props) {
   const [term, setTerm] = useState("");

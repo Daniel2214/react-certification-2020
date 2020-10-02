@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import VideoContext from '../state/VideosContext';
+import VideoContext from '../../state/VideosContext';
 import './VideoList.css'; 
 import { useHistory } from 'react-router-dom';
 

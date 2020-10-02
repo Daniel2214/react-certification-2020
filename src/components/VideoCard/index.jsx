@@ -2,7 +2,7 @@ import React, {useContext} from 'react'
 import { Card, Image } from 'semantic-ui-react'
 import moment from 'moment';
 import './Card.css'; 
-import VideoContext from '../state/VideosContext';
+import VideoContext from '../../state/VideosContext';
 import { useHistory } from 'react-router-dom';
 
 

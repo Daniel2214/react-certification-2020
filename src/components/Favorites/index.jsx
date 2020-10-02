@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Grid } from "semantic-ui-react";
-import VideoCard from "./VideoCard";
-import { FavVideosContext } from "../state/FavVideosContext";
+import VideoCard from "../VideoCard";
+import { FavVideosContext } from "../../state/FavVideosContext";
 import "./Favorites.css";
 
 const Favorites = () => {

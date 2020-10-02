@@ -1,18 +1,18 @@
 import React, { useState, useContext } from "react";
 import SearchBar from "./components/Searchbar";
 import { Switch, Route, useHistory } from "react-router-dom";
-import VideosGrid from "./components/VideosGrid";
+import VideosGrid from "./components/VideoGrid/VideosGrid";
 import Video from "./components/Video";
 import Youtube from "./api/Youtube";
 import VideosContext from "./state/VideosContext";
 import { UserContext } from "./state/UserContext";
 import ProtectedRoute from "./utils/ProtectedRoute";
-import Favorites from "./components/Favorites";
+import Favorites from "./components/Favorites/";
 import { FavoriteVideos } from "./state/FavVideosContext";
 import { Icon, Menu, Segment, Sidebar } from "semantic-ui-react";
 
 import "./App.css";
-import "./components/Favorites.css";
+import "./components/Favorites/Favorites.css";
 
 
 export default function App() {

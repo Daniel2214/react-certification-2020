@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import VideosContext from "../state/VideosContext";
-import { FavVideosContext } from "../state/FavVideosContext";
-import { UserContext } from "../state/UserContext";
-import VideoList from "./VideoList";
+import VideosContext from "../../state/VideosContext";
+import { FavVideosContext } from "../../state/FavVideosContext";
+import { UserContext } from "../../state/UserContext";
+import VideoList from "../VideoList";
 import { useParams } from "react-router-dom";
 import { Button } from "semantic-ui-react";
 
