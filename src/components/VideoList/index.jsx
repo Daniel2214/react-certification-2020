@@ -1,29 +1,17 @@
 import React, {useContext} from 'react';
 import VideoContext from '../../state/VideosContext';
 import './VideoList.css'; 
-import { useHistory } from 'react-router-dom';
+import VideoCard from '../VideoCard'
 
 
 const RelatedVideoList = () => {
 
-  const { videos, setCurrentVideo } = useContext(VideoContext);
-  const history = useHistory();
-
-  const handleClick = (video) => {
-    history.push(`/video/${video.id.videoId}`);
-    setCurrentVideo(video);
-    
-  };
+  const { videos } = useContext(VideoContext);
 
     
   const relatedVideos =  videos.map((video) => {
         return (
-          <div onClick={ () => handleClick(video)} className=' video-item item' key={video.id.videoId}>
-            <img className='ui image' src={video.snippet.thumbnails.medium.url} alt={video.snippet.description}/>
-            <div className='content'>
-                <div className='header '>{video.snippet.title}</div>
-            </div>
-        </div>
+          <VideoCard key={video.id.videoId} video={video}/>
         )
     });
 

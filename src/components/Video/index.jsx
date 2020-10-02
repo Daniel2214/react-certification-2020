@@ -17,28 +17,11 @@ export default function Video() {
     ? currentVideo.snippet.description
     : "Not description available";
   const [session] = useContext(UserContext);
-  const [favVideos, setFavVideos] = useContext(FavVideosContext);
+  const [favVideos, setFavVideos, removeFavVideo, isInFavs] = useContext(FavVideosContext);
 
-  const isInFavs = (obj, list) => {
-    var i;
-    for (i = 0; i < list.length; i++) {
-      if (list[i] === obj) {
-        return true;
-      }
-    }
-
-    return false;
-  };
-
-  const removeVideo = (videos, video) => {
-    const index = videos.indexOf(video);
-    if (index > -1) {
-      videos.splice(index, 1);
-    }
-    return videos
-  };
-
+  
   const isAlreadyFavorite = isInFavs(currentVideo, favVideos);
+  console.log(isAlreadyFavorite)
   return (
     <div className="ui container" style={{ marginTop: "3rem" }}>
       <div className="ui grid">
@@ -56,7 +39,7 @@ export default function Video() {
                 {isAlreadyFavorite ? (
                   <Button
                     onClick={() => {
-                      setFavVideos([...removeVideo(favVideos, currentVideo)])
+                      removeFavVideo(favVideos, currentVideo)
                     }}
                   >
                     Remove from favorites
