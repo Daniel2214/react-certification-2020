@@ -8,6 +8,7 @@ import VideosContext from "./state/VideosContext";
 import { UserContext } from "./state/UserContext";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import Favorites from "./components/Favorites/";
+import Login from "./components/Login";
 import { FavoriteVideos } from "./state/FavVideosContext";
 import { Icon, Menu, Segment, Sidebar } from "semantic-ui-react";
 
@@ -65,7 +66,9 @@ export default function App() {
                   <Route path="/video/:id">
                     <Video />
                   </Route>
-
+                  <Route path="/login">
+                    <Login />
+                  </Route>
                   <ProtectedRoute component={Favorites} path="/favs" />
 
                   <Route path="/">

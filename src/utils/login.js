@@ -1,7 +1,15 @@
-export const login = async () => {
-  return {
-    id: 1,
-    username: "wizeline",
-    email: "wizeline@wizeline.com"
-  };
+const mockedUser = {
+  id: '123',
+  name: 'Wizeline'
 };
+
+export default async function login(username, password) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (username === 'wizeline' && password === 'Rocks!') {
+        return resolve(mockedUser);
+      }
+      return reject();
+    }, 500);
+  });
+}

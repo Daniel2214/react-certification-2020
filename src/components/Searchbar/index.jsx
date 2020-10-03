@@ -1,12 +1,14 @@
 import React, { useState, useContext } from "react";
 import { Button, Icon } from "semantic-ui-react";
 import "./Searchbar.css";
-import { login } from "../../utils/login";
 import { UserContext } from "../../state/UserContext";
+import { useHistory } from "react-router-dom";
+
 
 export default function Searchbar(props) {
   const [term, setTerm] = useState("");
-  const [session, clearSession, addUser] = useContext(UserContext);
+  const [session] = useContext(UserContext);
+  const history = useHistory();
 
 
   const handleChange = (event) => {
@@ -17,6 +19,9 @@ export default function Searchbar(props) {
     event.preventDefault();
     props.handleFormSubmit(term);
   };
+
+  const handleClickSession = () => history.push("/login");
+
 
   return (
     <div className="ui container" style={{ paddingTop: "1rem" }}>
@@ -41,7 +46,7 @@ export default function Searchbar(props) {
                 <Button
                   className="logButton"
                   onClick={() => {
-                    clearSession();
+                    handleClickSession();
                   }}
                 >
                   <Icon className="userIcon" name="logout" />
@@ -51,8 +56,7 @@ export default function Searchbar(props) {
                   className="logButton"
                   onClick={async (event) => {
                     event.preventDefault();
-                    const currentUser = await login();
-                    addUser(currentUser);
+                    handleClickSession();
                   }}
                 >
                   <Icon className="userIcon" name="user" />
