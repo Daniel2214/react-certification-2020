@@ -50,7 +50,7 @@ const Login = () => {
               addUser(currentUser)
               handleClickSession();
             })
-            .catch(() => alert("Wrong credentials!"));    
+            .catch((error) => alert(error));    
           }}
         >
           Login

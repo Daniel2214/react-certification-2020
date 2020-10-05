@@ -9,7 +9,7 @@ export default async function login(username, password) {
       if (username === 'wizeline' && password === 'Rocks!') {
         return resolve(mockedUser);
       }
-      return reject();
+      return reject("Wrong credentials");
     }, 500);
   });
 }

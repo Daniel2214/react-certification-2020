@@ -45,13 +45,13 @@ export default function App() {
             visible
             width="thin"
           >
-            <Menu.Item as="a">
-              <Icon onClick={() => history.push("/")} name="home" />
+            <Menu.Item as="a" onClick={() => history.push("/")} >
+              <Icon name="home" />
               Home
             </Menu.Item>
             {session !== null ? (
-              <Menu.Item as="a">
-                <Icon onClick={() => history.push("/favs")} name="favorite" />
+              <Menu.Item as="a" onClick={() => history.push("/favs")} >
+                <Icon name="favorite" />
                 Favorites
               </Menu.Item>
             ) : (
